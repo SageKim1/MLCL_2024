@@ -1,0 +1,903 @@
+Namespace(batch=64, classes=20, dropout=0.1, epochs=200, g_clip=5.0, lr=0.0001, model_type='18', w_decay=0.01)
+
+(base) kmg@gnode8:~$ conda activate mlcl
+(mlcl) kmg@gnode8:~$ cd mlcl/
+(mlcl) kmg@gnode8:~/mlcl$ cd MLCL_2023/
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023$ cd 3_headgear/
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear$ cd classification_new/
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ ls
+1_CoLA_elec_trans_ver2.py  model  test.py  training.py  utils
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --epochs 1
+cuda:0
+57it [00:04, 11.64it/s]
+Epoch: 1/1.. Training Loss: 2.7290.. Training Accuracy: 15.77%.. Training F1 Score: 0.12
+Epoch: 1/1.. Validation Loss: 3.8913.. Validation Accuracy: 11.00%.. Validation F1 Score: 0.07
+Traceback (most recent call last):
+  File "training.py", line 180, in <module>
+    training()
+  File "training.py", line 167, in training
+    save_config(model_now)
+  File "training.py", line 174, in save_config
+    with open() as f:
+TypeError: open() missing required argument 'file' (pos 1)
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --epochs 1
+cuda:0
+57it [00:04, 11.94it/s]
+Epoch: 1/1.. Training Loss: 2.7251.. Training Accuracy: 16.44%.. Training F1 Score: 0.13
+Epoch: 1/1.. Validation Loss: 3.9521.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.07
+Traceback (most recent call last):
+  File "training.py", line 180, in <module>
+    training()
+  File "training.py", line 167, in training
+    save_config(model_now)
+  File "training.py", line 174, in save_config
+    with open(log_path) as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/
+classification_new/model/logs/resnet18_24032514.txt'
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --epochs 1
+cuda:0
+57it [00:04, 11.70it/s]
+Epoch: 1/1.. Training Loss: 2.7307.. Training Accuracy: 15.55%.. Training F1 Score: 0.12
+Epoch: 1/1.. Validation Loss: 4.7453.. Validation Accuracy: 7.00%.. Validation F1 Score: 0.04
+Traceback (most recent call last):
+  File "training.py", line 180, in <module>
+    training()
+  File "training.py", line 167, in training
+    save_config(model_now)
+  File "training.py", line 174, in save_config
+    with open(log_path) as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/
+classification_new/model/logs/resnet18_24032514.txt'
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ cd model/
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model$ cd logs/
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model/logs$ ls
+1.txt
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model/logs$ pwd
+/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/logs
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model/logs$ clear
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model/logs$ python training.py --epo
+chs 1
+python: can't open file 'training.py': [Errno 2] No such file or directory
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model/logs$ cd ..
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new/model$ cd ..
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --epochs 1
+cuda:0
+57it [00:04, 11.87it/s]
+Epoch: 1/1.. Training Loss: 2.7254.. Training Accuracy: 16.08%.. Training F1 Score: 0.12
+Epoch: 1/1.. Validation Loss: 4.6762.. Validation Accuracy: 9.00%.. Validation F1 Score: 0.05
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --epochs 1
+cuda:0
+57it [00:04, 11.91it/s]
+Epoch: 1/1.. Training Loss: 2.7255.. Training Accuracy: 17.71%.. Training F1 Score: 0.14
+Epoch: 1/1.. Validation Loss: 4.3495.. Validation Accuracy: 4.00%.. Validation F1 Score: 0.01
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ clear
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ CUDA_VISIBLE_DEVICES='5' python tra
+ining.py --epochs 20 --dropout 0.1
+cuda:0
+57it [00:05, 10.84it/s]
+Epoch: 1/20.. Training Loss: 2.6976.. Training Accuracy: 16.74%.. Training F1 Score: 0.13
+Epoch: 1/20.. Validation Loss: 4.0207.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.09
+57it [00:02, 22.24it/s]
+Epoch: 2/20.. Training Loss: 2.4356.. Training Accuracy: 24.36%.. Training F1 Score: 0.20
+Epoch: 2/20.. Validation Loss: 3.3903.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.21it/s]
+Epoch: 3/20.. Training Loss: 2.3441.. Training Accuracy: 26.33%.. Training F1 Score: 0.22
+Epoch: 3/20.. Validation Loss: 3.6780.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.10
+57it [00:02, 22.27it/s]
+Epoch: 4/20.. Training Loss: 2.2620.. Training Accuracy: 29.09%.. Training F1 Score: 0.25
+Epoch: 4/20.. Validation Loss: 4.1734.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.07
+57it [00:02, 22.31it/s]
+Epoch: 5/20.. Training Loss: 2.2330.. Training Accuracy: 30.99%.. Training F1 Score: 0.27
+Epoch: 5/20.. Validation Loss: 3.7130.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.14
+57it [00:02, 22.45it/s]
+Epoch: 6/20.. Training Loss: 2.2139.. Training Accuracy: 30.77%.. Training F1 Score: 0.27
+Epoch: 6/20.. Validation Loss: 3.1869.. Validation Accuracy: 15.00%.. Validation F1 Score: 0.09
+57it [00:02, 22.50it/s]
+Epoch: 7/20.. Training Loss: 2.1647.. Training Accuracy: 32.65%.. Training F1 Score: 0.29
+Epoch: 7/20.. Validation Loss: 3.0700.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.13
+57it [00:02, 21.62it/s]
+Epoch: 8/20.. Training Loss: 2.1469.. Training Accuracy: 33.43%.. Training F1 Score: 0.30
+Epoch: 8/20.. Validation Loss: 3.3376.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.13
+57it [00:02, 21.91it/s]
+Epoch: 9/20.. Training Loss: 2.0713.. Training Accuracy: 35.83%.. Training F1 Score: 0.32
+Epoch: 9/20.. Validation Loss: 2.8407.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.15
+57it [00:02, 22.83it/s]
+Epoch: 10/20.. Training Loss: 2.0820.. Training Accuracy: 34.89%.. Training F1 Score: 0.31
+Epoch: 10/20.. Validation Loss: 3.1581.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.14
+57it [00:02, 21.50it/s]
+Epoch: 11/20.. Training Loss: 2.0254.. Training Accuracy: 37.02%.. Training F1 Score: 0.33
+Epoch: 11/20.. Validation Loss: 3.2071.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.10
+57it [00:02, 22.75it/s]
+Epoch: 12/20.. Training Loss: 2.0100.. Training Accuracy: 37.10%.. Training F1 Score: 0.34
+Epoch: 12/20.. Validation Loss: 3.4249.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.11
+57it [00:02, 22.12it/s]
+Epoch: 13/20.. Training Loss: 1.9890.. Training Accuracy: 38.15%.. Training F1 Score: 0.35
+Epoch: 13/20.. Validation Loss: 3.1283.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.10
+57it [00:02, 22.60it/s]
+Epoch: 14/20.. Training Loss: 1.9820.. Training Accuracy: 38.29%.. Training F1 Score: 0.35
+Epoch: 14/20.. Validation Loss: 3.2195.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.18
+57it [00:02, 22.60it/s]
+Epoch: 15/20.. Training Loss: 1.9584.. Training Accuracy: 39.14%.. Training F1 Score: 0.35
+Epoch: 15/20.. Validation Loss: 3.2415.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.12
+57it [00:02, 23.12it/s]
+Epoch: 16/20.. Training Loss: 1.9116.. Training Accuracy: 39.89%.. Training F1 Score: 0.37
+Epoch: 16/20.. Validation Loss: 3.2505.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.16
+57it [00:02, 22.17it/s]
+Epoch: 17/20.. Training Loss: 1.9054.. Training Accuracy: 41.22%.. Training F1 Score: 0.38
+Epoch: 17/20.. Validation Loss: 2.7725.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.22
+57it [00:03, 17.73it/s]
+Epoch: 18/20.. Training Loss: 1.8871.. Training Accuracy: 40.11%.. Training F1 Score: 0.37
+Epoch: 18/20.. Validation Loss: 3.0525.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.22
+57it [00:02, 22.43it/s]
+Epoch: 19/20.. Training Loss: 1.8525.. Training Accuracy: 42.29%.. Training F1 Score: 0.39
+Epoch: 19/20.. Validation Loss: 3.1961.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.17
+57it [00:02, 21.99it/s]
+Epoch: 20/20.. Training Loss: 1.8581.. Training Accuracy: 42.10%.. Training F1 Score: 0.39
+Epoch: 20/20.. Validation Loss: 2.9149.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.16
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ clear
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ CUDA_VISIBLE_DEVICES='5' python tra
+ining.py --epochs 50 -dropout -.1
+usage: training.py [-h] [--batch BATCH] [--lr LR] [--epochs EPOCHS] [--w_decay W_DECAY]
+                   [--g_clip G_CLIP] [--model_type MODEL_TYPE] [--dropout DROPOUT]
+                   [--classes CLASSES]
+training.py: error: unrecognized arguments: -dropout -.1
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ CUDA_VISIBLE_DEVICES='5' python tra
+ining.py --epochs 50 --dropout -.1
+cuda:0
+Traceback (most recent call last):
+  File "training.py", line 178, in <module>
+    training()
+  File "training.py", line 145, in training
+    model = resnet18(num_classes=args.classes, dropout_rate=args.dropout)
+  File "/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/utils/resnet_18.py", line 116,
+ in resnet18
+    return Resnet(BasicBlock, [2, 2, 2, 2], num_classes, dropout_rate)
+  File "/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/utils/resnet_18.py", line 68,
+in __init__
+    self.layer1 = self._make_layer(block, 64, layers[0], stride=1)
+  File "/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/utils/resnet_18.py", line 87,
+in _make_layer
+    layers.append(block(self.inplanes, planes, stride, downsample, self.dropout_rate))
+  File "/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/utils/resnet_18.py", line 26,
+in __init__
+    self.dropout = nn.Dropout(dropout_rate)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/dropout.py
+", line 16, in __init__
+    raise ValueError(f"dropout probability has to be between 0 and 1, but got {p}")
+ValueError: dropout probability has to be between 0 and 1, but got -0.1
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ ^C
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ clear
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ CUDA_VISIBLE_DEVICES='5' python tra
+ining.py --epochs 50 --dropout 0.1
+cuda:0
+57it [00:04, 11.81it/s]
+Epoch: 1/50.. Training Loss: 2.6985.. Training Accuracy: 17.07%.. Training F1 Score: 0.13
+Epoch: 1/50.. Validation Loss: 4.3006.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.06
+57it [00:02, 22.44it/s]
+Epoch: 2/50.. Training Loss: 2.4111.. Training Accuracy: 25.52%.. Training F1 Score: 0.21
+Epoch: 2/50.. Validation Loss: 3.4519.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.12
+57it [00:02, 22.57it/s]
+Epoch: 3/50.. Training Loss: 2.3318.. Training Accuracy: 28.07%.. Training F1 Score: 0.24
+Epoch: 3/50.. Validation Loss: 3.8048.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.09
+57it [00:02, 22.65it/s]
+Epoch: 4/50.. Training Loss: 2.2848.. Training Accuracy: 28.98%.. Training F1 Score: 0.25
+Epoch: 4/50.. Validation Loss: 3.1552.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.18
+57it [00:02, 22.58it/s]
+Epoch: 5/50.. Training Loss: 2.2485.. Training Accuracy: 30.08%.. Training F1 Score: 0.27
+Epoch: 5/50.. Validation Loss: 3.3188.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.15
+57it [00:02, 21.96it/s]
+Epoch: 6/50.. Training Loss: 2.1974.. Training Accuracy: 31.33%.. Training F1 Score: 0.27
+Epoch: 6/50.. Validation Loss: 3.0618.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.10
+57it [00:02, 22.69it/s]
+Epoch: 7/50.. Training Loss: 2.1453.. Training Accuracy: 33.09%.. Training F1 Score: 0.29
+Epoch: 7/50.. Validation Loss: 3.0204.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.77it/s]
+Epoch: 8/50.. Training Loss: 2.1489.. Training Accuracy: 33.29%.. Training F1 Score: 0.30
+Epoch: 8/50.. Validation Loss: 3.0624.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.16
+57it [00:02, 22.83it/s]
+Epoch: 9/50.. Training Loss: 2.0916.. Training Accuracy: 34.94%.. Training F1 Score: 0.31
+Epoch: 9/50.. Validation Loss: 2.9348.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.15
+57it [00:02, 21.46it/s]
+Epoch: 10/50.. Training Loss: 2.0681.. Training Accuracy: 34.67%.. Training F1 Score: 0.31
+Epoch: 10/50.. Validation Loss: 3.0505.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.15
+57it [00:02, 23.08it/s]
+Epoch: 11/50.. Training Loss: 2.0410.. Training Accuracy: 36.49%.. Training F1 Score: 0.33
+Epoch: 11/50.. Validation Loss: 3.0220.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.11
+57it [00:02, 19.21it/s]
+Epoch: 12/50.. Training Loss: 2.0185.. Training Accuracy: 36.55%.. Training F1 Score: 0.33
+Epoch: 12/50.. Validation Loss: 3.1284.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.34it/s]
+Epoch: 13/50.. Training Loss: 2.0040.. Training Accuracy: 37.82%.. Training F1 Score: 0.34
+Epoch: 13/50.. Validation Loss: 3.0139.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.14
+57it [00:02, 22.02it/s]
+Epoch: 14/50.. Training Loss: 1.9762.. Training Accuracy: 38.09%.. Training F1 Score: 0.35
+Epoch: 14/50.. Validation Loss: 2.8900.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.04it/s]
+Epoch: 15/50.. Training Loss: 1.9462.. Training Accuracy: 39.45%.. Training F1 Score: 0.36
+Epoch: 15/50.. Validation Loss: 2.8639.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.16
+57it [00:02, 21.97it/s]
+Epoch: 16/50.. Training Loss: 1.9479.. Training Accuracy: 39.25%.. Training F1 Score: 0.36
+Epoch: 16/50.. Validation Loss: 2.9555.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.16
+57it [00:02, 22.78it/s]
+Epoch: 17/50.. Training Loss: 1.9420.. Training Accuracy: 39.17%.. Training F1 Score: 0.35
+Epoch: 17/50.. Validation Loss: 2.8278.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.20
+57it [00:02, 21.86it/s]
+Epoch: 18/50.. Training Loss: 1.9023.. Training Accuracy: 40.80%.. Training F1 Score: 0.38
+Epoch: 18/50.. Validation Loss: 2.6213.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.17
+57it [00:02, 22.21it/s]
+Epoch: 19/50.. Training Loss: 1.9064.. Training Accuracy: 41.16%.. Training F1 Score: 0.38
+Epoch: 19/50.. Validation Loss: 3.0126.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.11
+57it [00:02, 21.82it/s]
+Epoch: 20/50.. Training Loss: 1.8668.. Training Accuracy: 41.52%.. Training F1 Score: 0.38
+Epoch: 20/50.. Validation Loss: 2.8853.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.09
+57it [00:02, 21.55it/s]
+Epoch: 21/50.. Training Loss: 1.8764.. Training Accuracy: 41.49%.. Training F1 Score: 0.38
+Epoch: 21/50.. Validation Loss: 2.8436.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.35it/s]
+Epoch: 22/50.. Training Loss: 1.8393.. Training Accuracy: 43.20%.. Training F1 Score: 0.40
+Epoch: 22/50.. Validation Loss: 2.9324.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.09
+57it [00:02, 21.67it/s]
+Epoch: 23/50.. Training Loss: 1.8423.. Training Accuracy: 41.74%.. Training F1 Score: 0.38
+Epoch: 23/50.. Validation Loss: 2.7752.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.19
+57it [00:02, 22.86it/s]
+Epoch: 24/50.. Training Loss: 1.8023.. Training Accuracy: 43.09%.. Training F1 Score: 0.40
+Epoch: 24/50.. Validation Loss: 2.9014.. Validation Accuracy: 15.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.56it/s]
+Epoch: 25/50.. Training Loss: 1.8050.. Training Accuracy: 43.70%.. Training F1 Score: 0.41
+Epoch: 25/50.. Validation Loss: 2.9299.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.53it/s]
+Epoch: 26/50.. Training Loss: 1.7753.. Training Accuracy: 45.14%.. Training F1 Score: 0.42
+Epoch: 26/50.. Validation Loss: 2.8674.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.17
+57it [00:02, 22.87it/s]
+Epoch: 27/50.. Training Loss: 1.7469.. Training Accuracy: 45.41%.. Training F1 Score: 0.42
+Epoch: 27/50.. Validation Loss: 2.7434.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.21
+57it [00:02, 21.80it/s]
+Epoch: 28/50.. Training Loss: 1.7587.. Training Accuracy: 45.55%.. Training F1 Score: 0.43
+Epoch: 28/50.. Validation Loss: 2.8375.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.17
+57it [00:03, 15.00it/s]
+Epoch: 29/50.. Training Loss: 1.7412.. Training Accuracy: 45.61%.. Training F1 Score: 0.42
+Epoch: 29/50.. Validation Loss: 2.8571.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.15
+57it [00:02, 22.82it/s]
+Epoch: 30/50.. Training Loss: 1.6998.. Training Accuracy: 47.24%.. Training F1 Score: 0.44
+Epoch: 30/50.. Validation Loss: 2.6666.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.19
+27it [00:01, 22.32it/s]^C
+Traceback (most recent call last):
+  File "training.py", line 178, in <module>
+    training()
+  File "training.py", line 157, in training
+    train_loss, train_acc, train_f1 = train_one_epoch(model, criterion, optimizer, train_loader, devi
+ce, args.g_clip)
+  File "training.py", line 55, in train_one_epoch
+    output = model(data)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/module.py"
+, line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/module.py"
+, line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/utils/resnet_18.py", line 96,
+in forward
+    x = self.conv1(x)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/module.py"
+, line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/module.py"
+, line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/conv.py",
+line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/NasData/home/kmg/anaconda3/envs/mlcl/lib/python3.8/site-packages/torch/nn/modules/conv.py",
+line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
+
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ clear
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ CUDA_VISIBLE_DEVICES='5' python tra
+ining.py --epochs 200 --dropout 0.1
+cuda:0
+57it [00:04, 12.51it/s]
+Epoch: 1/200.. Training Loss: 2.6880.. Training Accuracy: 17.65%.. Training F1 Score: 0.14
+Epoch: 1/200.. Validation Loss: 3.8085.. Validation Accuracy: 15.00%.. Validation F1 Score: 0.09
+57it [00:02, 22.60it/s]
+Epoch: 2/200.. Training Loss: 2.4510.. Training Accuracy: 24.34%.. Training F1 Score: 0.21
+Epoch: 2/200.. Validation Loss: 3.9442.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.09
+57it [00:02, 23.03it/s]
+Epoch: 3/200.. Training Loss: 2.3195.. Training Accuracy: 28.84%.. Training F1 Score: 0.25
+Epoch: 3/200.. Validation Loss: 3.5974.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.14
+57it [00:02, 22.75it/s]
+Epoch: 4/200.. Training Loss: 2.2647.. Training Accuracy: 30.33%.. Training F1 Score: 0.27
+Epoch: 4/200.. Validation Loss: 3.2559.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.10
+57it [00:02, 22.32it/s]
+Epoch: 5/200.. Training Loss: 2.2169.. Training Accuracy: 31.52%.. Training F1 Score: 0.28
+Epoch: 5/200.. Validation Loss: 3.2599.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.11
+57it [00:02, 22.99it/s]
+Epoch: 6/200.. Training Loss: 2.1884.. Training Accuracy: 32.07%.. Training F1 Score: 0.28
+Epoch: 6/200.. Validation Loss: 3.4960.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.13
+57it [00:02, 23.74it/s]
+Epoch: 7/200.. Training Loss: 2.1789.. Training Accuracy: 33.18%.. Training F1 Score: 0.29
+Epoch: 7/200.. Validation Loss: 2.8728.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.13
+57it [00:02, 23.01it/s]
+Epoch: 8/200.. Training Loss: 2.0994.. Training Accuracy: 34.61%.. Training F1 Score: 0.31
+Epoch: 8/200.. Validation Loss: 3.2061.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.15
+57it [00:02, 23.44it/s]
+Epoch: 9/200.. Training Loss: 2.0931.. Training Accuracy: 35.50%.. Training F1 Score: 0.32
+Epoch: 9/200.. Validation Loss: 2.9042.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.14
+57it [00:02, 20.89it/s]
+Epoch: 10/200.. Training Loss: 2.0548.. Training Accuracy: 35.83%.. Training F1 Score: 0.32
+Epoch: 10/200.. Validation Loss: 3.1219.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.09
+57it [00:02, 22.11it/s]
+Epoch: 11/200.. Training Loss: 2.0210.. Training Accuracy: 37.35%.. Training F1 Score: 0.34
+Epoch: 11/200.. Validation Loss: 3.3069.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.81it/s]
+Epoch: 12/200.. Training Loss: 2.0282.. Training Accuracy: 36.80%.. Training F1 Score: 0.34
+Epoch: 12/200.. Validation Loss: 3.2994.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.12
+57it [00:02, 22.27it/s]
+Epoch: 13/200.. Training Loss: 1.9765.. Training Accuracy: 38.18%.. Training F1 Score: 0.34
+Epoch: 13/200.. Validation Loss: 3.2119.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.13
+57it [00:02, 23.52it/s]
+Epoch: 14/200.. Training Loss: 1.9804.. Training Accuracy: 37.87%.. Training F1 Score: 0.34
+Epoch: 14/200.. Validation Loss: 2.8920.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.15
+57it [00:02, 23.75it/s]
+Epoch: 15/200.. Training Loss: 1.9514.. Training Accuracy: 38.78%.. Training F1 Score: 0.35
+Epoch: 15/200.. Validation Loss: 3.1093.. Validation Accuracy: 9.00%.. Validation F1 Score: 0.07
+57it [00:02, 23.48it/s]
+Epoch: 16/200.. Training Loss: 1.9379.. Training Accuracy: 39.61%.. Training F1 Score: 0.36
+Epoch: 16/200.. Validation Loss: 2.9749.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.11
+57it [00:02, 23.58it/s]
+Epoch: 17/200.. Training Loss: 1.9129.. Training Accuracy: 40.30%.. Training F1 Score: 0.37
+Epoch: 17/200.. Validation Loss: 2.9755.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.10
+57it [00:02, 23.26it/s]
+Epoch: 18/200.. Training Loss: 1.9315.. Training Accuracy: 39.50%.. Training F1 Score: 0.36
+Epoch: 18/200.. Validation Loss: 2.7997.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.23
+57it [00:02, 22.17it/s]
+Epoch: 19/200.. Training Loss: 1.8722.. Training Accuracy: 41.13%.. Training F1 Score: 0.38
+Epoch: 19/200.. Validation Loss: 3.3411.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.11
+57it [00:02, 23.58it/s]
+Epoch: 20/200.. Training Loss: 1.8723.. Training Accuracy: 42.15%.. Training F1 Score: 0.39
+Epoch: 20/200.. Validation Loss: 3.0437.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.13
+57it [00:02, 22.46it/s]
+Epoch: 21/200.. Training Loss: 1.8724.. Training Accuracy: 42.24%.. Training F1 Score: 0.39
+Epoch: 21/200.. Validation Loss: 2.8872.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.35it/s]
+Epoch: 22/200.. Training Loss: 1.8380.. Training Accuracy: 43.15%.. Training F1 Score: 0.40
+Epoch: 22/200.. Validation Loss: 2.8097.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.61it/s]
+Epoch: 23/200.. Training Loss: 1.8324.. Training Accuracy: 42.27%.. Training F1 Score: 0.39
+Epoch: 23/200.. Validation Loss: 2.8482.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.38it/s]
+Epoch: 24/200.. Training Loss: 1.8179.. Training Accuracy: 42.96%.. Training F1 Score: 0.40
+Epoch: 24/200.. Validation Loss: 3.0087.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.13
+57it [00:02, 21.84it/s]
+Epoch: 25/200.. Training Loss: 1.7866.. Training Accuracy: 44.59%.. Training F1 Score: 0.41
+Epoch: 25/200.. Validation Loss: 2.5835.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.23
+57it [00:02, 21.65it/s]
+Epoch: 26/200.. Training Loss: 1.7905.. Training Accuracy: 44.23%.. Training F1 Score: 0.41
+Epoch: 26/200.. Validation Loss: 2.9222.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.14
+57it [00:02, 23.07it/s]
+Epoch: 27/200.. Training Loss: 1.7773.. Training Accuracy: 44.53%.. Training F1 Score: 0.42
+Epoch: 27/200.. Validation Loss: 2.8635.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.15
+57it [00:02, 22.52it/s]
+Epoch: 28/200.. Training Loss: 1.7600.. Training Accuracy: 44.17%.. Training F1 Score: 0.41
+Epoch: 28/200.. Validation Loss: 2.7992.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.21
+57it [00:02, 20.70it/s]
+Epoch: 29/200.. Training Loss: 1.7654.. Training Accuracy: 44.03%.. Training F1 Score: 0.41
+Epoch: 29/200.. Validation Loss: 2.9661.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.15
+57it [00:02, 22.78it/s]
+Epoch: 30/200.. Training Loss: 1.7185.. Training Accuracy: 46.66%.. Training F1 Score: 0.44
+Epoch: 30/200.. Validation Loss: 2.7402.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.89it/s]
+Epoch: 31/200.. Training Loss: 1.7186.. Training Accuracy: 46.63%.. Training F1 Score: 0.44
+Epoch: 31/200.. Validation Loss: 2.7204.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.44it/s]
+Epoch: 32/200.. Training Loss: 1.6847.. Training Accuracy: 46.99%.. Training F1 Score: 0.44
+Epoch: 32/200.. Validation Loss: 2.8489.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.84it/s]
+Epoch: 33/200.. Training Loss: 1.6890.. Training Accuracy: 46.93%.. Training F1 Score: 0.44
+Epoch: 33/200.. Validation Loss: 2.7686.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.00it/s]
+Epoch: 34/200.. Training Loss: 1.6652.. Training Accuracy: 48.07%.. Training F1 Score: 0.45
+Epoch: 34/200.. Validation Loss: 2.8556.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.73it/s]
+Epoch: 35/200.. Training Loss: 1.6766.. Training Accuracy: 47.65%.. Training F1 Score: 0.45
+Epoch: 35/200.. Validation Loss: 2.8050.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.13
+57it [00:02, 23.96it/s]
+Epoch: 36/200.. Training Loss: 1.6592.. Training Accuracy: 48.12%.. Training F1 Score: 0.46
+Epoch: 36/200.. Validation Loss: 2.6910.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.68it/s]
+Epoch: 37/200.. Training Loss: 1.6366.. Training Accuracy: 47.79%.. Training F1 Score: 0.45
+Epoch: 37/200.. Validation Loss: 2.8217.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.43it/s]
+Epoch: 38/200.. Training Loss: 1.6081.. Training Accuracy: 49.28%.. Training F1 Score: 0.46
+Epoch: 38/200.. Validation Loss: 2.6161.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.22
+57it [00:02, 23.61it/s]
+Epoch: 39/200.. Training Loss: 1.6086.. Training Accuracy: 50.33%.. Training F1 Score: 0.48
+Epoch: 39/200.. Validation Loss: 2.6952.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.65it/s]
+Epoch: 40/200.. Training Loss: 1.6304.. Training Accuracy: 49.34%.. Training F1 Score: 0.46
+Epoch: 40/200.. Validation Loss: 2.7134.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.22
+57it [00:02, 24.25it/s]
+Epoch: 41/200.. Training Loss: 1.5962.. Training Accuracy: 49.64%.. Training F1 Score: 0.47
+Epoch: 41/200.. Validation Loss: 2.7858.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.27it/s]
+Epoch: 42/200.. Training Loss: 1.5680.. Training Accuracy: 50.64%.. Training F1 Score: 0.48
+Epoch: 42/200.. Validation Loss: 2.6444.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.16
+57it [00:02, 23.22it/s]
+Epoch: 43/200.. Training Loss: 1.5548.. Training Accuracy: 50.91%.. Training F1 Score: 0.48
+Epoch: 43/200.. Validation Loss: 2.7090.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.34it/s]
+Epoch: 44/200.. Training Loss: 1.5603.. Training Accuracy: 51.19%.. Training F1 Score: 0.49
+Epoch: 44/200.. Validation Loss: 2.7477.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.19
+57it [00:02, 24.41it/s]
+Epoch: 45/200.. Training Loss: 1.5280.. Training Accuracy: 51.63%.. Training F1 Score: 0.49
+Epoch: 45/200.. Validation Loss: 2.7459.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.45it/s]
+Epoch: 46/200.. Training Loss: 1.5089.. Training Accuracy: 51.96%.. Training F1 Score: 0.49
+Epoch: 46/200.. Validation Loss: 2.5507.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.13it/s]
+Epoch: 47/200.. Training Loss: 1.5215.. Training Accuracy: 51.41%.. Training F1 Score: 0.49
+Epoch: 47/200.. Validation Loss: 2.4477.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.29
+57it [00:02, 23.25it/s]
+Epoch: 48/200.. Training Loss: 1.4890.. Training Accuracy: 53.20%.. Training F1 Score: 0.51
+Epoch: 48/200.. Validation Loss: 2.6334.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.60it/s]
+Epoch: 49/200.. Training Loss: 1.4868.. Training Accuracy: 53.01%.. Training F1 Score: 0.51
+Epoch: 49/200.. Validation Loss: 2.7846.. Validation Accuracy: 18.00%.. Validation F1 Score: 0.16
+57it [00:02, 24.22it/s]
+Epoch: 50/200.. Training Loss: 1.4808.. Training Accuracy: 53.43%.. Training F1 Score: 0.51
+Epoch: 50/200.. Validation Loss: 3.3953.. Validation Accuracy: 11.00%.. Validation F1 Score: 0.05
+57it [00:02, 22.45it/s]
+Epoch: 51/200.. Training Loss: 1.4462.. Training Accuracy: 54.36%.. Training F1 Score: 0.52
+Epoch: 51/200.. Validation Loss: 2.5659.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.20
+57it [00:02, 24.18it/s]
+Epoch: 52/200.. Training Loss: 1.4953.. Training Accuracy: 53.09%.. Training F1 Score: 0.51
+Epoch: 52/200.. Validation Loss: 2.7153.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.13
+57it [00:02, 23.38it/s]
+Epoch: 53/200.. Training Loss: 1.4403.. Training Accuracy: 54.50%.. Training F1 Score: 0.52
+Epoch: 53/200.. Validation Loss: 3.0209.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.80it/s]
+Epoch: 54/200.. Training Loss: 1.4403.. Training Accuracy: 55.22%.. Training F1 Score: 0.53
+Epoch: 54/200.. Validation Loss: 2.5803.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.39it/s]
+Epoch: 55/200.. Training Loss: 1.4211.. Training Accuracy: 55.64%.. Training F1 Score: 0.53
+Epoch: 55/200.. Validation Loss: 2.8343.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.18
+57it [00:02, 22.95it/s]
+Epoch: 56/200.. Training Loss: 1.4221.. Training Accuracy: 55.14%.. Training F1 Score: 0.53
+Epoch: 56/200.. Validation Loss: 2.7038.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.33it/s]
+Epoch: 57/200.. Training Loss: 1.3924.. Training Accuracy: 55.64%.. Training F1 Score: 0.53
+Epoch: 57/200.. Validation Loss: 2.7978.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.25it/s]
+Epoch: 58/200.. Training Loss: 1.3714.. Training Accuracy: 56.74%.. Training F1 Score: 0.55
+Epoch: 58/200.. Validation Loss: 2.6481.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.69it/s]
+Epoch: 59/200.. Training Loss: 1.4143.. Training Accuracy: 55.69%.. Training F1 Score: 0.54
+Epoch: 59/200.. Validation Loss: 2.7196.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.21
+57it [00:02, 24.06it/s]
+Epoch: 60/200.. Training Loss: 1.3840.. Training Accuracy: 55.50%.. Training F1 Score: 0.53
+Epoch: 60/200.. Validation Loss: 2.5731.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.26
+57it [00:02, 23.25it/s]
+Epoch: 61/200.. Training Loss: 1.3946.. Training Accuracy: 56.08%.. Training F1 Score: 0.54
+Epoch: 61/200.. Validation Loss: 2.7907.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.80it/s]
+Epoch: 62/200.. Training Loss: 1.3541.. Training Accuracy: 57.27%.. Training F1 Score: 0.55
+Epoch: 62/200.. Validation Loss: 2.9031.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.10
+57it [00:02, 23.09it/s]
+Epoch: 63/200.. Training Loss: 1.3691.. Training Accuracy: 56.63%.. Training F1 Score: 0.55
+Epoch: 63/200.. Validation Loss: 2.8499.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.10
+57it [00:02, 23.27it/s]
+Epoch: 64/200.. Training Loss: 1.3685.. Training Accuracy: 56.74%.. Training F1 Score: 0.55
+Epoch: 64/200.. Validation Loss: 2.7907.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.42it/s]
+Epoch: 65/200.. Training Loss: 1.3573.. Training Accuracy: 56.63%.. Training F1 Score: 0.54
+Epoch: 65/200.. Validation Loss: 2.8574.. Validation Accuracy: 17.00%.. Validation F1 Score: 0.14
+57it [00:02, 22.64it/s]
+Epoch: 66/200.. Training Loss: 1.3359.. Training Accuracy: 57.87%.. Training F1 Score: 0.56
+Epoch: 66/200.. Validation Loss: 2.4979.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.54it/s]
+Epoch: 67/200.. Training Loss: 1.2969.. Training Accuracy: 59.64%.. Training F1 Score: 0.58
+Epoch: 67/200.. Validation Loss: 2.7006.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.27
+57it [00:02, 23.02it/s]
+Epoch: 68/200.. Training Loss: 1.3307.. Training Accuracy: 58.76%.. Training F1 Score: 0.57
+Epoch: 68/200.. Validation Loss: 2.6992.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.10it/s]
+Epoch: 69/200.. Training Loss: 1.3328.. Training Accuracy: 58.70%.. Training F1 Score: 0.57
+Epoch: 69/200.. Validation Loss: 2.5558.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.62it/s]
+Epoch: 70/200.. Training Loss: 1.2987.. Training Accuracy: 58.51%.. Training F1 Score: 0.56
+Epoch: 70/200.. Validation Loss: 2.6219.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.22
+57it [00:02, 23.50it/s]
+Epoch: 71/200.. Training Loss: 1.3019.. Training Accuracy: 58.62%.. Training F1 Score: 0.57
+Epoch: 71/200.. Validation Loss: 2.5386.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.79it/s]
+Epoch: 72/200.. Training Loss: 1.3030.. Training Accuracy: 59.25%.. Training F1 Score: 0.57
+Epoch: 72/200.. Validation Loss: 2.9488.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.88it/s]
+Epoch: 73/200.. Training Loss: 1.3226.. Training Accuracy: 58.62%.. Training F1 Score: 0.57
+Epoch: 73/200.. Validation Loss: 2.4858.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.26
+57it [00:02, 23.78it/s]
+Epoch: 74/200.. Training Loss: 1.2760.. Training Accuracy: 59.72%.. Training F1 Score: 0.58
+Epoch: 74/200.. Validation Loss: 2.6378.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.51it/s]
+Epoch: 75/200.. Training Loss: 1.2702.. Training Accuracy: 58.90%.. Training F1 Score: 0.57
+Epoch: 75/200.. Validation Loss: 2.6889.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.17
+57it [00:02, 22.34it/s]
+Epoch: 76/200.. Training Loss: 1.3129.. Training Accuracy: 58.34%.. Training F1 Score: 0.56
+Epoch: 76/200.. Validation Loss: 2.6338.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.53it/s]
+Epoch: 77/200.. Training Loss: 1.2509.. Training Accuracy: 60.41%.. Training F1 Score: 0.59
+Epoch: 77/200.. Validation Loss: 2.4680.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.29
+57it [00:02, 23.65it/s]
+Epoch: 78/200.. Training Loss: 1.2553.. Training Accuracy: 59.86%.. Training F1 Score: 0.58
+Epoch: 78/200.. Validation Loss: 2.8026.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.17
+57it [00:02, 23.66it/s]
+Epoch: 79/200.. Training Loss: 1.2369.. Training Accuracy: 61.57%.. Training F1 Score: 0.60
+Epoch: 79/200.. Validation Loss: 2.6231.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.55it/s]
+Epoch: 80/200.. Training Loss: 1.2150.. Training Accuracy: 62.10%.. Training F1 Score: 0.60
+Epoch: 80/200.. Validation Loss: 2.5964.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.24
+57it [00:02, 22.89it/s]
+Epoch: 81/200.. Training Loss: 1.2173.. Training Accuracy: 62.27%.. Training F1 Score: 0.60
+Epoch: 81/200.. Validation Loss: 2.4122.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.28
+57it [00:02, 22.24it/s]
+Epoch: 82/200.. Training Loss: 1.2520.. Training Accuracy: 60.50%.. Training F1 Score: 0.59
+Epoch: 82/200.. Validation Loss: 2.5746.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.62it/s]
+Epoch: 83/200.. Training Loss: 1.2133.. Training Accuracy: 61.60%.. Training F1 Score: 0.60
+Epoch: 83/200.. Validation Loss: 2.5919.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.94it/s]
+Epoch: 84/200.. Training Loss: 1.2421.. Training Accuracy: 60.83%.. Training F1 Score: 0.59
+Epoch: 84/200.. Validation Loss: 2.5976.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.19
+57it [00:02, 22.66it/s]
+Epoch: 85/200.. Training Loss: 1.1999.. Training Accuracy: 62.87%.. Training F1 Score: 0.61
+Epoch: 85/200.. Validation Loss: 2.4993.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.35it/s]
+Epoch: 86/200.. Training Loss: 1.2030.. Training Accuracy: 62.98%.. Training F1 Score: 0.61
+Epoch: 86/200.. Validation Loss: 2.4879.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.59it/s]
+Epoch: 87/200.. Training Loss: 1.2183.. Training Accuracy: 61.74%.. Training F1 Score: 0.60
+Epoch: 87/200.. Validation Loss: 2.5484.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.25
+57it [00:02, 22.55it/s]
+Epoch: 88/200.. Training Loss: 1.1956.. Training Accuracy: 62.15%.. Training F1 Score: 0.60
+Epoch: 88/200.. Validation Loss: 2.3869.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.29
+57it [00:02, 23.73it/s]
+Epoch: 89/200.. Training Loss: 1.2049.. Training Accuracy: 62.62%.. Training F1 Score: 0.61
+Epoch: 89/200.. Validation Loss: 2.7647.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.50it/s]
+Epoch: 90/200.. Training Loss: 1.1954.. Training Accuracy: 63.07%.. Training F1 Score: 0.61
+Epoch: 90/200.. Validation Loss: 2.5730.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.86it/s]
+Epoch: 91/200.. Training Loss: 1.1850.. Training Accuracy: 63.34%.. Training F1 Score: 0.62
+Epoch: 91/200.. Validation Loss: 2.3912.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.27
+57it [00:02, 24.13it/s]
+Epoch: 92/200.. Training Loss: 1.1686.. Training Accuracy: 63.23%.. Training F1 Score: 0.62
+Epoch: 92/200.. Validation Loss: 2.6009.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.22
+57it [00:02, 23.62it/s]
+Epoch: 93/200.. Training Loss: 1.2001.. Training Accuracy: 63.09%.. Training F1 Score: 0.61
+Epoch: 93/200.. Validation Loss: 2.5584.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.40it/s]
+Epoch: 94/200.. Training Loss: 1.1581.. Training Accuracy: 63.73%.. Training F1 Score: 0.62
+Epoch: 94/200.. Validation Loss: 2.6236.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.44it/s]
+Epoch: 95/200.. Training Loss: 1.1698.. Training Accuracy: 63.15%.. Training F1 Score: 0.61
+Epoch: 95/200.. Validation Loss: 2.4715.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.78it/s]
+Epoch: 96/200.. Training Loss: 1.1901.. Training Accuracy: 63.76%.. Training F1 Score: 0.62
+Epoch: 96/200.. Validation Loss: 2.6650.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.20it/s]
+Epoch: 97/200.. Training Loss: 1.1771.. Training Accuracy: 62.62%.. Training F1 Score: 0.61
+Epoch: 97/200.. Validation Loss: 2.4950.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.68it/s]
+Epoch: 98/200.. Training Loss: 1.1725.. Training Accuracy: 62.87%.. Training F1 Score: 0.61
+Epoch: 98/200.. Validation Loss: 2.6690.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.16
+57it [00:02, 23.61it/s]
+Epoch: 99/200.. Training Loss: 1.1543.. Training Accuracy: 64.92%.. Training F1 Score: 0.63
+Epoch: 99/200.. Validation Loss: 2.4715.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.26
+57it [00:02, 22.80it/s]
+Epoch: 100/200.. Training Loss: 1.1360.. Training Accuracy: 64.94%.. Training F1 Score: 0.63
+Epoch: 100/200.. Validation Loss: 2.5190.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.68it/s]
+Epoch: 101/200.. Training Loss: 1.1570.. Training Accuracy: 63.73%.. Training F1 Score: 0.62
+Epoch: 101/200.. Validation Loss: 2.7040.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.16
+57it [00:02, 22.93it/s]
+Epoch: 102/200.. Training Loss: 1.1367.. Training Accuracy: 64.50%.. Training F1 Score: 0.63
+Epoch: 102/200.. Validation Loss: 2.4634.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.26
+57it [00:02, 22.69it/s]
+Epoch: 103/200.. Training Loss: 1.1455.. Training Accuracy: 64.89%.. Training F1 Score: 0.63
+Epoch: 103/200.. Validation Loss: 2.5788.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.18
+57it [00:02, 24.34it/s]
+Epoch: 104/200.. Training Loss: 1.1538.. Training Accuracy: 63.65%.. Training F1 Score: 0.62
+Epoch: 104/200.. Validation Loss: 2.2420.. Validation Accuracy: 37.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.53it/s]
+Epoch: 105/200.. Training Loss: 1.1251.. Training Accuracy: 66.19%.. Training F1 Score: 0.65
+Epoch: 105/200.. Validation Loss: 2.6666.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.76it/s]
+Epoch: 106/200.. Training Loss: 1.1235.. Training Accuracy: 64.78%.. Training F1 Score: 0.63
+Epoch: 106/200.. Validation Loss: 2.4290.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.26
+57it [00:02, 23.84it/s]
+Epoch: 107/200.. Training Loss: 1.0920.. Training Accuracy: 65.52%.. Training F1 Score: 0.64
+Epoch: 107/200.. Validation Loss: 2.4233.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.48it/s]
+Epoch: 108/200.. Training Loss: 1.1003.. Training Accuracy: 65.69%.. Training F1 Score: 0.64
+Epoch: 108/200.. Validation Loss: 2.9351.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.60it/s]
+Epoch: 109/200.. Training Loss: 1.1095.. Training Accuracy: 65.50%.. Training F1 Score: 0.64
+Epoch: 109/200.. Validation Loss: 2.3378.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.33
+57it [00:02, 23.47it/s]
+Epoch: 110/200.. Training Loss: 1.1010.. Training Accuracy: 66.74%.. Training F1 Score: 0.65
+Epoch: 110/200.. Validation Loss: 2.8545.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.83it/s]
+Epoch: 111/200.. Training Loss: 1.1116.. Training Accuracy: 65.75%.. Training F1 Score: 0.64
+Epoch: 111/200.. Validation Loss: 2.3463.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.80it/s]
+Epoch: 112/200.. Training Loss: 1.1116.. Training Accuracy: 66.05%.. Training F1 Score: 0.65
+Epoch: 112/200.. Validation Loss: 2.3450.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.28
+57it [00:02, 22.58it/s]
+Epoch: 113/200.. Training Loss: 1.0786.. Training Accuracy: 66.49%.. Training F1 Score: 0.65
+Epoch: 113/200.. Validation Loss: 2.4703.. Validation Accuracy: 36.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.41it/s]
+Epoch: 114/200.. Training Loss: 1.1051.. Training Accuracy: 65.86%.. Training F1 Score: 0.64
+Epoch: 114/200.. Validation Loss: 2.5465.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.23
+57it [00:02, 23.78it/s]
+Epoch: 115/200.. Training Loss: 1.0906.. Training Accuracy: 65.99%.. Training F1 Score: 0.64
+Epoch: 115/200.. Validation Loss: 2.3393.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.24it/s]
+Epoch: 116/200.. Training Loss: 1.0971.. Training Accuracy: 65.69%.. Training F1 Score: 0.64
+Epoch: 116/200.. Validation Loss: 2.5680.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.59it/s]
+Epoch: 117/200.. Training Loss: 1.0924.. Training Accuracy: 66.38%.. Training F1 Score: 0.65
+Epoch: 117/200.. Validation Loss: 2.8387.. Validation Accuracy: 21.00%.. Validation F1 Score: 0.21
+57it [00:04, 14.11it/s]
+Epoch: 118/200.. Training Loss: 1.0875.. Training Accuracy: 66.49%.. Training F1 Score: 0.65
+Epoch: 118/200.. Validation Loss: 2.6106.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.61it/s]
+Epoch: 119/200.. Training Loss: 1.0869.. Training Accuracy: 65.99%.. Training F1 Score: 0.65
+Epoch: 119/200.. Validation Loss: 2.4257.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.29
+57it [00:02, 23.50it/s]
+Epoch: 120/200.. Training Loss: 1.1171.. Training Accuracy: 65.55%.. Training F1 Score: 0.64
+Epoch: 120/200.. Validation Loss: 2.2971.. Validation Accuracy: 34.00%.. Validation F1 Score: 0.30
+57it [00:02, 24.00it/s]
+Epoch: 121/200.. Training Loss: 1.0713.. Training Accuracy: 67.40%.. Training F1 Score: 0.66
+Epoch: 121/200.. Validation Loss: 2.9018.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.14
+57it [00:02, 24.07it/s]
+Epoch: 122/200.. Training Loss: 1.0788.. Training Accuracy: 67.40%.. Training F1 Score: 0.66
+Epoch: 122/200.. Validation Loss: 2.3703.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.27
+57it [00:02, 23.89it/s]
+Epoch: 123/200.. Training Loss: 1.0755.. Training Accuracy: 67.27%.. Training F1 Score: 0.66
+Epoch: 123/200.. Validation Loss: 2.3130.. Validation Accuracy: 34.00%.. Validation F1 Score: 0.30
+57it [00:02, 22.02it/s]
+Epoch: 124/200.. Training Loss: 1.0791.. Training Accuracy: 66.52%.. Training F1 Score: 0.65
+Epoch: 124/200.. Validation Loss: 2.3765.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.23
+57it [00:02, 22.94it/s]
+Epoch: 125/200.. Training Loss: 1.0651.. Training Accuracy: 67.60%.. Training F1 Score: 0.66
+Epoch: 125/200.. Validation Loss: 2.4432.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.26
+57it [00:02, 22.98it/s]
+Epoch: 126/200.. Training Loss: 1.0503.. Training Accuracy: 68.18%.. Training F1 Score: 0.67
+Epoch: 126/200.. Validation Loss: 2.3549.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.31
+57it [00:02, 23.41it/s]
+Epoch: 127/200.. Training Loss: 1.0657.. Training Accuracy: 68.07%.. Training F1 Score: 0.67
+Epoch: 127/200.. Validation Loss: 2.6047.. Validation Accuracy: 19.00%.. Validation F1 Score: 0.15
+57it [00:02, 23.97it/s]
+Epoch: 128/200.. Training Loss: 1.0776.. Training Accuracy: 66.96%.. Training F1 Score: 0.65
+Epoch: 128/200.. Validation Loss: 2.4323.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.22
+57it [00:02, 22.21it/s]
+Epoch: 129/200.. Training Loss: 1.0485.. Training Accuracy: 68.92%.. Training F1 Score: 0.68
+Epoch: 129/200.. Validation Loss: 2.4845.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.21
+57it [00:02, 22.59it/s]
+Epoch: 130/200.. Training Loss: 1.0602.. Training Accuracy: 68.07%.. Training F1 Score: 0.67
+Epoch: 130/200.. Validation Loss: 2.3722.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.22
+57it [00:02, 22.96it/s]
+Epoch: 131/200.. Training Loss: 1.0269.. Training Accuracy: 68.51%.. Training F1 Score: 0.67
+Epoch: 131/200.. Validation Loss: 2.4544.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.24it/s]
+Epoch: 132/200.. Training Loss: 1.0622.. Training Accuracy: 67.98%.. Training F1 Score: 0.67
+Epoch: 132/200.. Validation Loss: 2.3986.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.34it/s]
+Epoch: 133/200.. Training Loss: 1.0708.. Training Accuracy: 67.27%.. Training F1 Score: 0.66
+Epoch: 133/200.. Validation Loss: 2.4369.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.35it/s]
+Epoch: 134/200.. Training Loss: 1.0614.. Training Accuracy: 68.18%.. Training F1 Score: 0.67
+Epoch: 134/200.. Validation Loss: 2.4939.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.24
+57it [00:02, 23.52it/s]
+Epoch: 135/200.. Training Loss: 1.0509.. Training Accuracy: 68.67%.. Training F1 Score: 0.67
+Epoch: 135/200.. Validation Loss: 2.6675.. Validation Accuracy: 16.00%.. Validation F1 Score: 0.16
+57it [00:02, 23.89it/s]
+Epoch: 136/200.. Training Loss: 1.0685.. Training Accuracy: 68.45%.. Training F1 Score: 0.67
+Epoch: 136/200.. Validation Loss: 2.3578.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.27
+57it [00:02, 22.10it/s]
+Epoch: 137/200.. Training Loss: 1.0534.. Training Accuracy: 68.31%.. Training F1 Score: 0.67
+Epoch: 137/200.. Validation Loss: 2.5078.. Validation Accuracy: 24.00%.. Validation F1 Score: 0.18
+57it [00:02, 23.31it/s]
+Epoch: 138/200.. Training Loss: 1.0524.. Training Accuracy: 68.34%.. Training F1 Score: 0.67
+Epoch: 138/200.. Validation Loss: 2.4992.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.25
+57it [00:02, 22.18it/s]
+Epoch: 139/200.. Training Loss: 1.0413.. Training Accuracy: 68.81%.. Training F1 Score: 0.67
+Epoch: 139/200.. Validation Loss: 2.3690.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.28
+57it [00:02, 22.49it/s]
+Epoch: 140/200.. Training Loss: 1.0577.. Training Accuracy: 68.51%.. Training F1 Score: 0.67
+Epoch: 140/200.. Validation Loss: 2.3246.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.32
+57it [00:02, 24.31it/s]
+Epoch: 141/200.. Training Loss: 1.0407.. Training Accuracy: 68.18%.. Training F1 Score: 0.67
+Epoch: 141/200.. Validation Loss: 2.3334.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.52it/s]
+Epoch: 142/200.. Training Loss: 1.0051.. Training Accuracy: 69.61%.. Training F1 Score: 0.68
+Epoch: 142/200.. Validation Loss: 2.1566.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.62it/s]
+Epoch: 143/200.. Training Loss: 1.0311.. Training Accuracy: 68.95%.. Training F1 Score: 0.67
+Epoch: 143/200.. Validation Loss: 2.3325.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.24
+57it [00:02, 23.53it/s]
+Epoch: 144/200.. Training Loss: 1.0512.. Training Accuracy: 68.40%.. Training F1 Score: 0.67
+Epoch: 144/200.. Validation Loss: 2.7069.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.21
+57it [00:02, 22.87it/s]
+Epoch: 145/200.. Training Loss: 1.0394.. Training Accuracy: 69.12%.. Training F1 Score: 0.67
+Epoch: 145/200.. Validation Loss: 2.2193.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.32
+57it [00:02, 23.58it/s]
+Epoch: 146/200.. Training Loss: 1.0196.. Training Accuracy: 69.36%.. Training F1 Score: 0.68
+Epoch: 146/200.. Validation Loss: 2.4934.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.26it/s]
+Epoch: 147/200.. Training Loss: 1.0108.. Training Accuracy: 69.92%.. Training F1 Score: 0.69
+Epoch: 147/200.. Validation Loss: 2.6702.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.29it/s]
+Epoch: 148/200.. Training Loss: 1.0314.. Training Accuracy: 69.61%.. Training F1 Score: 0.68
+Epoch: 148/200.. Validation Loss: 2.1423.. Validation Accuracy: 39.00%.. Validation F1 Score: 0.37
+57it [00:02, 23.03it/s]
+Epoch: 149/200.. Training Loss: 1.0151.. Training Accuracy: 70.75%.. Training F1 Score: 0.70
+Epoch: 149/200.. Validation Loss: 2.2393.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.30
+57it [00:02, 23.36it/s]
+Epoch: 150/200.. Training Loss: 1.0507.. Training Accuracy: 68.87%.. Training F1 Score: 0.67
+Epoch: 150/200.. Validation Loss: 2.5448.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.25
+57it [00:02, 22.37it/s]
+Epoch: 151/200.. Training Loss: 1.0250.. Training Accuracy: 70.75%.. Training F1 Score: 0.69
+Epoch: 151/200.. Validation Loss: 2.3145.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.27
+57it [00:02, 23.11it/s]
+Epoch: 152/200.. Training Loss: 1.0169.. Training Accuracy: 70.41%.. Training F1 Score: 0.69
+Epoch: 152/200.. Validation Loss: 2.4887.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.21
+57it [00:02, 21.98it/s]
+Epoch: 153/200.. Training Loss: 1.0099.. Training Accuracy: 70.91%.. Training F1 Score: 0.70
+Epoch: 153/200.. Validation Loss: 2.2622.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.59it/s]
+Epoch: 154/200.. Training Loss: 1.0304.. Training Accuracy: 69.81%.. Training F1 Score: 0.68
+Epoch: 154/200.. Validation Loss: 2.3666.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.22
+57it [00:02, 23.01it/s]
+Epoch: 155/200.. Training Loss: 1.0296.. Training Accuracy: 69.89%.. Training F1 Score: 0.69
+Epoch: 155/200.. Validation Loss: 2.1762.. Validation Accuracy: 37.00%.. Validation F1 Score: 0.36
+57it [00:02, 23.95it/s]
+Epoch: 156/200.. Training Loss: 1.0136.. Training Accuracy: 70.39%.. Training F1 Score: 0.69
+Epoch: 156/200.. Validation Loss: 2.5206.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.22
+57it [00:02, 23.89it/s]
+Epoch: 157/200.. Training Loss: 1.0234.. Training Accuracy: 70.58%.. Training F1 Score: 0.69
+Epoch: 157/200.. Validation Loss: 2.4165.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.23
+57it [00:02, 22.91it/s]
+Epoch: 158/200.. Training Loss: 1.0436.. Training Accuracy: 69.06%.. Training F1 Score: 0.68
+Epoch: 158/200.. Validation Loss: 2.2243.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.33
+57it [00:02, 23.60it/s]
+Epoch: 159/200.. Training Loss: 1.0067.. Training Accuracy: 71.44%.. Training F1 Score: 0.70
+Epoch: 159/200.. Validation Loss: 2.2524.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.25
+57it [00:02, 22.62it/s]
+Epoch: 160/200.. Training Loss: 1.0249.. Training Accuracy: 70.69%.. Training F1 Score: 0.69
+Epoch: 160/200.. Validation Loss: 2.4663.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.20
+57it [00:02, 22.88it/s]
+Epoch: 161/200.. Training Loss: 1.0113.. Training Accuracy: 70.66%.. Training F1 Score: 0.69
+Epoch: 161/200.. Validation Loss: 2.3699.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.53it/s]
+Epoch: 162/200.. Training Loss: 1.0252.. Training Accuracy: 69.94%.. Training F1 Score: 0.68
+Epoch: 162/200.. Validation Loss: 2.3105.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.22it/s]
+Epoch: 163/200.. Training Loss: 1.0137.. Training Accuracy: 70.11%.. Training F1 Score: 0.69
+Epoch: 163/200.. Validation Loss: 2.2411.. Validation Accuracy: 34.00%.. Validation F1 Score: 0.32
+57it [00:02, 23.79it/s]
+Epoch: 164/200.. Training Loss: 0.9820.. Training Accuracy: 72.18%.. Training F1 Score: 0.71
+Epoch: 164/200.. Validation Loss: 2.4435.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.27
+57it [00:02, 22.89it/s]
+Epoch: 165/200.. Training Loss: 1.0278.. Training Accuracy: 71.05%.. Training F1 Score: 0.70
+Epoch: 165/200.. Validation Loss: 2.2682.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.31
+57it [00:02, 23.42it/s]
+Epoch: 166/200.. Training Loss: 1.0024.. Training Accuracy: 71.16%.. Training F1 Score: 0.70
+Epoch: 166/200.. Validation Loss: 2.1713.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.32
+57it [00:02, 23.56it/s]
+Epoch: 167/200.. Training Loss: 1.0152.. Training Accuracy: 70.28%.. Training F1 Score: 0.69
+Epoch: 167/200.. Validation Loss: 2.3233.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.15it/s]
+Epoch: 168/200.. Training Loss: 0.9994.. Training Accuracy: 71.80%.. Training F1 Score: 0.70
+Epoch: 168/200.. Validation Loss: 2.3454.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.26
+57it [00:02, 23.45it/s]
+Epoch: 169/200.. Training Loss: 1.0046.. Training Accuracy: 71.99%.. Training F1 Score: 0.71
+Epoch: 169/200.. Validation Loss: 2.2009.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.27
+57it [00:02, 21.94it/s]
+Epoch: 170/200.. Training Loss: 1.0184.. Training Accuracy: 71.19%.. Training F1 Score: 0.70
+Epoch: 170/200.. Validation Loss: 2.3889.. Validation Accuracy: 23.00%.. Validation F1 Score: 0.23
+57it [00:02, 22.08it/s]
+Epoch: 171/200.. Training Loss: 1.0093.. Training Accuracy: 71.63%.. Training F1 Score: 0.70
+Epoch: 171/200.. Validation Loss: 2.3021.. Validation Accuracy: 28.00%.. Validation F1 Score: 0.26
+57it [00:02, 22.94it/s]
+Epoch: 172/200.. Training Loss: 0.9966.. Training Accuracy: 72.51%.. Training F1 Score: 0.71
+Epoch: 172/200.. Validation Loss: 2.3213.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.31
+57it [00:02, 23.67it/s]
+Epoch: 173/200.. Training Loss: 1.0093.. Training Accuracy: 71.71%.. Training F1 Score: 0.70
+Epoch: 173/200.. Validation Loss: 2.2700.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.26
+57it [00:02, 22.42it/s]
+Epoch: 174/200.. Training Loss: 0.9909.. Training Accuracy: 72.62%.. Training F1 Score: 0.71
+Epoch: 174/200.. Validation Loss: 2.3081.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.28
+57it [00:02, 22.83it/s]
+Epoch: 175/200.. Training Loss: 0.9981.. Training Accuracy: 72.10%.. Training F1 Score: 0.71
+Epoch: 175/200.. Validation Loss: 2.3185.. Validation Accuracy: 30.00%.. Validation F1 Score: 0.29
+57it [00:02, 23.78it/s]
+Epoch: 176/200.. Training Loss: 1.0155.. Training Accuracy: 71.96%.. Training F1 Score: 0.70
+Epoch: 176/200.. Validation Loss: 2.1959.. Validation Accuracy: 40.00%.. Validation F1 Score: 0.34
+57it [00:02, 23.45it/s]
+Epoch: 177/200.. Training Loss: 1.0179.. Training Accuracy: 71.16%.. Training F1 Score: 0.70
+Epoch: 177/200.. Validation Loss: 2.2329.. Validation Accuracy: 35.00%.. Validation F1 Score: 0.32
+57it [00:02, 23.67it/s]
+Epoch: 178/200.. Training Loss: 1.0094.. Training Accuracy: 72.02%.. Training F1 Score: 0.71
+Epoch: 178/200.. Validation Loss: 2.2129.. Validation Accuracy: 38.00%.. Validation F1 Score: 0.34
+57it [00:02, 23.43it/s]
+Epoch: 179/200.. Training Loss: 1.0132.. Training Accuracy: 72.02%.. Training F1 Score: 0.71
+Epoch: 179/200.. Validation Loss: 2.2425.. Validation Accuracy: 31.00%.. Validation F1 Score: 0.25
+57it [00:02, 23.15it/s]
+Epoch: 180/200.. Training Loss: 0.9825.. Training Accuracy: 72.73%.. Training F1 Score: 0.72
+Epoch: 180/200.. Validation Loss: 2.5928.. Validation Accuracy: 20.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.67it/s]
+Epoch: 181/200.. Training Loss: 0.9914.. Training Accuracy: 74.14%.. Training F1 Score: 0.73
+Epoch: 181/200.. Validation Loss: 2.2492.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.18it/s]
+Epoch: 182/200.. Training Loss: 1.0120.. Training Accuracy: 72.35%.. Training F1 Score: 0.71
+Epoch: 182/200.. Validation Loss: 2.3913.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.28
+57it [00:02, 23.57it/s]
+Epoch: 183/200.. Training Loss: 1.0201.. Training Accuracy: 71.93%.. Training F1 Score: 0.71
+Epoch: 183/200.. Validation Loss: 2.4872.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.19
+57it [00:02, 23.31it/s]
+Epoch: 184/200.. Training Loss: 0.9992.. Training Accuracy: 73.56%.. Training F1 Score: 0.72
+Epoch: 184/200.. Validation Loss: 2.3085.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.23
+57it [00:02, 24.11it/s]
+Epoch: 185/200.. Training Loss: 0.9896.. Training Accuracy: 74.45%.. Training F1 Score: 0.73
+Epoch: 185/200.. Validation Loss: 2.4186.. Validation Accuracy: 22.00%.. Validation F1 Score: 0.20
+57it [00:02, 23.29it/s]
+Epoch: 186/200.. Training Loss: 1.0074.. Training Accuracy: 72.93%.. Training F1 Score: 0.72
+Epoch: 186/200.. Validation Loss: 2.1576.. Validation Accuracy: 42.00%.. Validation F1 Score: 0.41
+57it [00:02, 24.10it/s]
+Epoch: 187/200.. Training Loss: 1.0149.. Training Accuracy: 72.62%.. Training F1 Score: 0.71
+Epoch: 187/200.. Validation Loss: 2.5359.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.25
+57it [00:02, 22.94it/s]
+Epoch: 188/200.. Training Loss: 0.9979.. Training Accuracy: 73.18%.. Training F1 Score: 0.72
+Epoch: 188/200.. Validation Loss: 2.2831.. Validation Accuracy: 27.00%.. Validation F1 Score: 0.26
+57it [00:03, 15.24it/s]
+Epoch: 189/200.. Training Loss: 0.9963.. Training Accuracy: 73.76%.. Training F1 Score: 0.73
+Epoch: 189/200.. Validation Loss: 2.3359.. Validation Accuracy: 26.00%.. Validation F1 Score: 0.24
+57it [00:02, 23.80it/s]
+Epoch: 190/200.. Training Loss: 1.0029.. Training Accuracy: 73.84%.. Training F1 Score: 0.73
+Epoch: 190/200.. Validation Loss: 2.1460.. Validation Accuracy: 39.00%.. Validation F1 Score: 0.35
+57it [00:02, 23.49it/s]
+Epoch: 191/200.. Training Loss: 0.9883.. Training Accuracy: 73.81%.. Training F1 Score: 0.73
+Epoch: 191/200.. Validation Loss: 2.2567.. Validation Accuracy: 37.00%.. Validation F1 Score: 0.34
+57it [00:02, 23.66it/s]
+Epoch: 192/200.. Training Loss: 0.9701.. Training Accuracy: 74.89%.. Training F1 Score: 0.74
+Epoch: 192/200.. Validation Loss: 2.3887.. Validation Accuracy: 33.00%.. Validation F1 Score: 0.33
+57it [00:02, 23.61it/s]
+Epoch: 193/200.. Training Loss: 0.9833.. Training Accuracy: 74.14%.. Training F1 Score: 0.73
+Epoch: 193/200.. Validation Loss: 2.2930.. Validation Accuracy: 29.00%.. Validation F1 Score: 0.26
+57it [00:02, 23.58it/s]
+Epoch: 194/200.. Training Loss: 0.9739.. Training Accuracy: 75.28%.. Training F1 Score: 0.74
+Epoch: 194/200.. Validation Loss: 2.2277.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.30
+57it [00:02, 22.91it/s]
+Epoch: 195/200.. Training Loss: 0.9924.. Training Accuracy: 73.92%.. Training F1 Score: 0.73
+Epoch: 195/200.. Validation Loss: 2.1598.. Validation Accuracy: 38.00%.. Validation F1 Score: 0.35
+57it [00:02, 22.90it/s]
+Epoch: 196/200.. Training Loss: 0.9665.. Training Accuracy: 75.30%.. Training F1 Score: 0.74
+Epoch: 196/200.. Validation Loss: 2.1749.. Validation Accuracy: 38.00%.. Validation F1 Score: 0.33
+57it [00:02, 22.39it/s]
+Epoch: 197/200.. Training Loss: 0.9800.. Training Accuracy: 74.50%.. Training F1 Score: 0.73
+Epoch: 197/200.. Validation Loss: 2.2757.. Validation Accuracy: 32.00%.. Validation F1 Score: 0.31
+57it [00:02, 23.67it/s]
+Epoch: 198/200.. Training Loss: 1.0008.. Training Accuracy: 74.12%.. Training F1 Score: 0.73
+Epoch: 198/200.. Validation Loss: 2.3501.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.24
+57it [00:02, 23.78it/s]
+Epoch: 199/200.. Training Loss: 1.0000.. Training Accuracy: 73.48%.. Training F1 Score: 0.72
+Epoch: 199/200.. Validation Loss: 2.3632.. Validation Accuracy: 25.00%.. Validation F1 Score: 0.21
+57it [00:02, 23.34it/s]
+Epoch: 200/200.. Training Loss: 0.9765.. Training Accuracy: 75.03%.. Training F1 Score: 0.74
+Epoch: 200/200.. Validation Loss: 2.2679.. Validation Accuracy: 36.00%.. Validation F1 Score: 0.36
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ tmux capture-pane -pS -1000000 > lo
+g1.txt
+
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python test.py
+Test Accuracy: 9.00%.. Test F1 Score: 0.05

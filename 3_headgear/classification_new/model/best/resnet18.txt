@@ -1,3 +1,3 @@
-model_path: /NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/resnet18_24032617.pth
-test_acc: 13.0
-test_f1: 0.06267634326457858
+model_path: /NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/resnet18_24032619.pth
+test_acc: 18.0
+test_f1: 0.09537855761260015

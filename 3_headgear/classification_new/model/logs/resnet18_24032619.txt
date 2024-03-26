@@ -1,0 +1,12 @@
+Namespace(batch=64, classes=20, dropout=0.12, epochs=15, g_clip=5.0, lr=0.0001, model_type='18', patience=1, verbose=True, w_decay=0.01)
+
+
+Epoch: 1/15.. Training Loss: 2.7445.. Training Accuracy: 16.63%.. Training F1 Score: 0.13
+Epoch: 1/15.. Validation Loss: 4.1431.. Validation Accuracy: 8.00%.. Validation F1 Score: 0.03
+Epoch: 2/15.. Training Loss: 2.4656.. Training Accuracy: 24.09%.. Training F1 Score: 0.20
+Epoch: 2/15.. Validation Loss: 4.4724.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.07
+
+
+model_path: /NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/resnet18_24032619.pth
+test_acc: 18.0
+test_f1: 0.09537855761260015

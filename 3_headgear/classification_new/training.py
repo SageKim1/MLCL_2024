@@ -183,15 +183,20 @@ def training():
                                    verbose=args.verbose,
                                    path=model_dir)
     
+    training_history = '\n'
     # TODO: Train the model on the training data, and validate it on the validation data
     for epoch in range(args.epochs):
         # TODO: Train the model on the training data
         train_loss, train_acc, train_f1 = train_one_epoch(model, criterion, optimizer, train_loader, device, args.g_clip)
-        print(f"Epoch: {epoch+1}/{args.epochs}.. Training Loss: {train_loss:.4f}.. Training Accuracy: {train_acc:.2f}%.. Training F1 Score: {train_f1:.2f}")
+        train_line = f"Epoch: {epoch+1}/{args.epochs}.. Training Loss: {train_loss:.4f}.. Training Accuracy: {train_acc:.2f}%.. Training F1 Score: {train_f1:.2f}"
+        print(train_line)
+        training_history += train_line + '\n'
 
         # TODO: Validate the model on the validation data
         valid_loss, valid_acc, valid_f1 = validate(model, criterion, valid_loader, device)
-        print(f"Epoch: {epoch+1}/{args.epochs}.. Validation Loss: {valid_loss:.4f}.. Validation Accuracy: {valid_acc:.2f}%.. Validation F1 Score: {valid_f1:.2f}")
+        valid_line = f"Epoch: {epoch+1}/{args.epochs}.. Validation Loss: {valid_loss:.4f}.. Validation Accuracy: {valid_acc:.2f}%.. Validation F1 Score: {valid_f1:.2f}"
+        print(valid_line)
+        training_history += valid_line + '\n'
 
         early_stopping(valid_loss, model)
         if early_stopping.early_stop:
@@ -206,8 +211,7 @@ def training():
 
     log_path = os.path.join('./model/logs', model_now + '.txt')
     with open(log_path, 'a') as f:
-        f.write(f"\nEpoch: {epoch+1}/{args.epochs}.. Training Loss: {train_loss:.4f}.. Training Accuracy: {train_acc:.2f}%.. Training F1 Score: {train_f1:.2f}\n")
-        f.write(f"Epoch: {epoch+1}/{args.epochs}.. Validation Loss: {valid_loss:.4f}.. Validation Accuracy: {valid_acc:.2f}%.. Validation F1 Score: {valid_f1:.2f}\n")
+        f.write(training_history + '\n')
 
     run_test(model_now)
 

@@ -37,7 +37,7 @@ def test():
         model_type = 'resnet18'
         model = resnet18(num_classes=args.classes)
     
-    model_dir = '/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/'
+    model_dir = './model/'
     files = os.listdir(model_dir)
     matching_files = [file for file in files if file.startswith(model_type)]
     latest_timestamp = max([int(file.split('_')[1][:8]) for file in matching_files])
@@ -73,6 +73,7 @@ def test():
     test_acc = (correct_predictions / total_predictions) * 100.0
     test_f1 = f1_score(all_labels, all_predictions, average='macro')
 
+    print(f"Model: {latest_model[0]}")
     print(f"Test Accuracy: {test_acc:.2f}%.. Test F1 Score: {test_f1:.2f}")
 
 if __name__ == "__main__":

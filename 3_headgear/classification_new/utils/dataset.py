@@ -7,10 +7,13 @@ from PIL import Image
 import warnings
 warnings.filterwarnings("ignore")
 
+cur_dir = os.path.dirname(os.path.abspath(__file__))
+pjt_dir = os.path.dirname(os.path.dirname(os.path.dirname(cur_dir)))
+
 class HeadGearDataset(Dataset):
     def __init__(self, mode, transform=None, target_transform=None):
-        self.annotation_path = '/NasData/home/kmg/mlcl/MLCL_2023/data/headgear/headgear.csv'
-        self.dataset_path = '/NasData/home/kmg/mlcl/MLCL_2023/data/headgear'
+        self.annotation_path = os.path.join(pjt_dir, 'data/headgear/headgear.csv')
+        self.dataset_path = os.path.join(pjt_dir, 'data/headgear')
 
         self.img_labels = pd.read_csv(self.annotation_path)
         self.img_labels = self.img_labels[self.img_labels['data set'] == mode]

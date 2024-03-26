@@ -1,0 +1,21 @@
+Namespace(batch=64, classes=20, dropout=0.12, epochs=15, g_clip=5.0, lr=0.0001, model_type='18', patience=1, verbose=True, w_decay=0.01)
+
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python training.py --patience 1
+cuda:0
+57it [00:04, 11.71it/s]
+Epoch: 1/15.. Training Loss: 2.7241.. Training Accuracy: 16.88%.. Training F1 Score: 0.14
+Epoch: 1/15.. Validation Loss: 4.1012.. Validation Accuracy: 12.00%.. Validation F1 Score: 0.07
+Validation loss decreased (inf --> 4.101244).  Saving model ...
+57it [00:02, 22.36it/s]
+Epoch: 2/15.. Training Loss: 2.4647.. Training Accuracy: 24.20%.. Training F1 Score: 0.19
+Epoch: 2/15.. Validation Loss: 3.8874.. Validation Accuracy: 13.00%.. Validation F1 Score: 0.08
+Validation loss decreased (4.101244 --> 3.887438).  Saving model ...
+57it [00:02, 21.67it/s]
+Epoch: 3/15.. Training Loss: 2.3418.. Training Accuracy: 26.38%.. Training F1 Score: 0.23
+Epoch: 3/15.. Validation Loss: 5.2518.. Validation Accuracy: 14.00%.. Validation F1 Score: 0.08
+EarlyStopping counter: 1 out of 1
+Early stopping
+
+(mlcl) kmg@gnode8:~/mlcl/MLCL_2023/3_headgear/classification_new$ python test.py
+Model: resnet18_24032613.pth
+Test Accuracy: 14.00%.. Test F1 Score: 0.08

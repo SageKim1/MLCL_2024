@@ -9,6 +9,7 @@ from PIL import Image
 from utils.dataset import HeadGearDataset
 from utils.resnet_18 import resnet18
 from utils.resnet_34 import resnet34
+from utils.early_stopping import EarlyStopping
 from sklearn.metrics import f1_score
 
 from tqdm import tqdm
@@ -18,6 +19,7 @@ warnings.filterwarnings("ignore")
 
 from datetime import datetime
 import argparse
+import os
 
 
 parser = argparse.ArgumentParser()
@@ -31,6 +33,9 @@ parser.add_argument('--g_clip', type=float, default=5.0, help='grad clip thresho
 parser.add_argument('--model_type', type=str, default="18", help="resnet model type")
 parser.add_argument('--dropout', type=float, default=0.12, help='dropout rate')
 parser.add_argument('--classes', type=int, default=20, help='number of classes')
+
+parser.add_argument('--patience', type=int, default=10, help='patience of early stop')
+parser.add_argument('--verbose', type=bool, default=True, help='whether to display messages')
 
 args = parser.parse_args()
 
@@ -150,6 +155,10 @@ def training():
     criterion = criterion.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.w_decay)
     
+    model_dir = './model'
+    early_stopping = EarlyStopping(patience=args.patience, 
+                                   verbose=args.verbose,
+                                   path=model_dir)
     
     # TODO: Train the model on the training data, and validate it on the validation data
     for epoch in range(args.epochs):
@@ -161,15 +170,19 @@ def training():
         valid_loss, valid_acc, valid_f1 = validate(model, criterion, valid_loader, device)
         print(f"Epoch: {epoch+1}/{args.epochs}.. Validation Loss: {valid_loss:.4f}.. Validation Accuracy: {valid_acc:.2f}%.. Validation F1 Score: {valid_f1:.2f}")
 
+        early_stopping(valid_loss, model)
+        if early_stopping.early_stop:
+            print('Early stopping')
+            break
 
     # TODO: Save the trained model
     model_now = model_type + '_' + datetime.now().strftime("%y%m%d%H")
     save_config(model_now)
-    model_save_path = '/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/' + model_now + '.pth'
+    model_save_path = os.path.join(model_dir, model_now + '.pth')
     torch.save(model.state_dict(), model_save_path)
 
 def save_config(model_now):
-    log_path = '/NasData/home/kmg/mlcl/MLCL_2023/3_headgear/classification_new/model/logs/' + model_now + '.txt'
+    log_path = './model/logs/' + model_now + '.txt'
 
     with open(log_path, 'w') as f:
         f.write(f'{args}\n\n')

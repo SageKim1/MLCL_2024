@@ -125,6 +125,9 @@ def validate(model, criterion, dataloader, device):
 def run_test(model_now):
     print("Running test.py...")
     model_path, test_acc_new, test_f1 = test(model_now)
+    log_path = os.path.join('./model/logs', model_now + '.txt')
+    with open(log_path, 'a') as f:
+        f.write('\n' + 'model_path: ' + model_path + '\n' + 'test_acc: ' + str(test_acc_new) + '\n' + 'test_f1: ' + str(test_f1) + '\n')
     
     best_file = 'resnet' + model_now[6:8] + '.txt'
     best_path = os.path.join('./model/best', best_file)
@@ -200,6 +203,11 @@ def training():
     save_config(model_now)
     model_save_path = os.path.join(model_dir, model_now + '.pth')
     torch.save(model.state_dict(), model_save_path)
+
+    log_path = os.path.join('./model/logs', model_now + '.txt')
+    with open(log_path, 'a') as f:
+        f.write(f"\nEpoch: {epoch+1}/{args.epochs}.. Training Loss: {train_loss:.4f}.. Training Accuracy: {train_acc:.2f}%.. Training F1 Score: {train_f1:.2f}\n")
+        f.write(f"Epoch: {epoch+1}/{args.epochs}.. Validation Loss: {valid_loss:.4f}.. Validation Accuracy: {valid_acc:.2f}%.. Validation F1 Score: {valid_f1:.2f}\n")
 
     run_test(model_now)
 

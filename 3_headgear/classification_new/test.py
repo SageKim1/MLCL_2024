@@ -19,7 +19,7 @@ parser.add_argument('--model_type', type=str, default='18', help='resnet model t
 parser.add_argument('--classes', type=int, default=20, help='number of classes')
 args = parser.parse_args()
 
-def test():
+def test(model_type='18'):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
@@ -30,7 +30,7 @@ def test():
     test_loader = DataLoader(test_data, args.batch, shuffle=False)
 
     # TODO: Define the model and load the trained weights
-    if args.model_type == '34':
+    if args.model_type == '34' or model_type == '34':
         model_type = 'resnet34'
         model = resnet34(num_classes=args.classes)
     else:
@@ -75,6 +75,8 @@ def test():
 
     print(f"Model: {latest_model[0]}")
     print(f"Test Accuracy: {test_acc:.2f}%.. Test F1 Score: {test_f1:.2f}")
+
+    return latest_model[0], test_acc, test_f1
 
 if __name__ == "__main__":
     test()

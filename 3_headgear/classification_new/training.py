@@ -10,6 +10,7 @@ from utils.dataset import HeadGearDataset
 from utils.resnet_18 import resnet18
 from utils.resnet_34 import resnet34
 from utils.early_stopping import EarlyStopping
+from test import test
 from sklearn.metrics import f1_score
 
 from tqdm import tqdm
@@ -20,6 +21,7 @@ warnings.filterwarnings("ignore")
 from datetime import datetime
 import argparse
 import os
+import subprocess
 
 
 parser = argparse.ArgumentParser()
@@ -34,7 +36,7 @@ parser.add_argument('--model_type', type=str, default="18", help="resnet model t
 parser.add_argument('--dropout', type=float, default=0.12, help='dropout rate')
 parser.add_argument('--classes', type=int, default=20, help='number of classes')
 
-parser.add_argument('--patience', type=int, default=10, help='patience of early stop')
+parser.add_argument('--patience', type=int, default=1, help='patience of early stop')
 parser.add_argument('--verbose', type=bool, default=True, help='whether to display messages')
 
 args = parser.parse_args()
@@ -120,6 +122,24 @@ def validate(model, criterion, dataloader, device):
 
     return valid_loss, valid_acc, valid_f1
 
+def run_test(model_type):
+    print("Running test.py...")
+    model_name, test_acc_new, test_f1 = test(model_type)
+    
+    best_file = 'resnet' + model_type + '.txt'
+    best_path = os.path.join('./model/best', best_file)
+
+    if os.path.exists(best_path) and os.path.getsize(best_path) > 0:
+        with open(best_path, 'r') as f:
+            data = f.read()
+        test_acc_line = [line for line in data.split('\n') if "test_acc" in line][0]
+        test_acc_best = float(test_acc_line.split(": ")[-1].strip())
+    else:
+        test_acc_best = 0
+    
+    if test_acc_new > test_acc_best:
+        with open(best_path, 'w') as f:
+            f.write('model_name: ' + model_name + '\n' + 'test_acc: ' + str(test_acc_new) + '\n' + 'test_f1: ' + str(test_f1))
 
 def training():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -180,6 +200,8 @@ def training():
     save_config(model_now)
     model_save_path = os.path.join(model_dir, model_now + '.pth')
     torch.save(model.state_dict(), model_save_path)
+
+    run_test(model_type[-2:])
 
 def save_config(model_now):
     log_path = './model/logs/' + model_now + '.txt'

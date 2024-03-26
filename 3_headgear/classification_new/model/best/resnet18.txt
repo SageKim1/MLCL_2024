@@ -1,0 +1,3 @@
+model_name: resnet18_24032615.pth
+test_acc: 10.0
+test_f1: 0.03528735632183908

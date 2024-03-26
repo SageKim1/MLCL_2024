@@ -1,0 +1,2 @@
+Namespace(batch=64, classes=20, dropout=0.12, epochs=15, g_clip=5.0, lr=0.0001, model_type='18', patience=1, verbose=True, w_decay=0.01)
+

@@ -122,11 +122,11 @@ def validate(model, criterion, dataloader, device):
 
     return valid_loss, valid_acc, valid_f1
 
-def run_test(model_type):
+def run_test(model_now):
     print("Running test.py...")
-    model_name, test_acc_new, test_f1 = test(model_type)
+    model_path, test_acc_new, test_f1 = test(model_now)
     
-    best_file = 'resnet' + model_type + '.txt'
+    best_file = 'resnet' + model_now[6:8] + '.txt'
     best_path = os.path.join('./model/best', best_file)
 
     if os.path.exists(best_path) and os.path.getsize(best_path) > 0:
@@ -139,7 +139,7 @@ def run_test(model_type):
     
     if test_acc_new > test_acc_best:
         with open(best_path, 'w') as f:
-            f.write('model_name: ' + model_name + '\n' + 'test_acc: ' + str(test_acc_new) + '\n' + 'test_f1: ' + str(test_f1))
+            f.write('model_path: ' + model_path + '\n' + 'test_acc: ' + str(test_acc_new) + '\n' + 'test_f1: ' + str(test_f1))
 
 def training():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -201,7 +201,7 @@ def training():
     model_save_path = os.path.join(model_dir, model_now + '.pth')
     torch.save(model.state_dict(), model_save_path)
 
-    run_test(model_type[-2:])
+    run_test(model_now)
 
 def save_config(model_now):
     log_path = './model/logs/' + model_now + '.txt'
